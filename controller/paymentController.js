@@ -43,7 +43,7 @@ const paymentVerification = async (req, res) => {
       razorpay_signature
     })
     res.redirect(
-      `https://paymentinegration.onrender.com/paymentSuccess?reference=${razorpay_payment_id}`
+      `https://payment-2vcq.onrender.com/paymentSuccess?reference=${razorpay_payment_id}`
     )
   } else {
     res.status(400).send({
