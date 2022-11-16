@@ -25,6 +25,7 @@ const checkOut = async (req, res) => {
   }
 }
 
+//* verification of payment
 const paymentVerification = async (req, res) => {
   const { razorpay_order_id, razorpay_payment_id, razorpay_signature } = req.body
 
@@ -43,7 +44,8 @@ const paymentVerification = async (req, res) => {
       razorpay_signature
     })
     res.redirect(
-      `https://payment-2vcq.onrender.com/paymentSuccess?reference=${razorpay_payment_id}`
+      // `https://payment-2vcq.onrender.com/paymentSuccess?reference=${razorpay_payment_id}`
+      `${process.env.CLIENTURL}?reference=${razorpay_payment_id}`
     )
   } else {
     res.status(400).send({
@@ -52,6 +54,7 @@ const paymentVerification = async (req, res) => {
   }
 }
 
+//* get the keys
 const getKey = async (req, res) => {
   res.status(200).send({
     key: process.env.RAZORPAY_KEY_ID
