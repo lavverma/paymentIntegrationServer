@@ -45,7 +45,7 @@ const paymentVerification = async (req, res) => {
     })
     res.redirect(
       // `https://payment-2vcq.onrender.com/paymentSuccess?reference=${razorpay_payment_id}`
-      `${process.env.CLIENTURL}paymentSuccess?reference=${razorpay_payment_id}`
+      `${process.env.CLIENTURL}/paymentSuccess?reference=${razorpay_payment_id}`
     )
   } else {
     res.status(400).send({
